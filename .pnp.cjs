@@ -853,6 +853,7 @@ const RAW_RUNTIME_STATE =
           ["@repo/demo-app", "workspace:packages/demo-app"],\
           ["@repo/eslint-config", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#workspace:packages/eslint-config"],\
           ["@repo/prettier-config", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#workspace:packages/prettier-config"],\
+          ["@total-typescript/ts-reset", "npm:0.5.1"],\
           ["@types/react", "npm:18.3.1"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@vitejs/plugin-react", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:4.2.1"],\
@@ -860,6 +861,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:18.3.1"],\
+          ["tslib", "npm:2.6.2"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
           ["vite", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:5.2.10"],\
           ["vite-tsconfig-paths", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:4.3.2"]\
@@ -1097,6 +1099,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@rushstack-eslint-patch-npm-1.10.2-fee9e481be-3712b8994b.zip/node_modules/@rushstack/eslint-patch/",\
         "packageDependencies": [\
           ["@rushstack/eslint-patch", "npm:1.10.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@total-typescript/ts-reset", [\
+      ["npm:0.5.1", {\
+        "packageLocation": "./.yarn/cache/@total-typescript-ts-reset-npm-0.5.1-532bff4f05-0339e97503.zip/node_modules/@total-typescript/ts-reset/",\
+        "packageDependencies": [\
+          ["@total-typescript/ts-reset", "npm:0.5.1"]\
         ],\
         "linkType": "HARD"\
       }]\

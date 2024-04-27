@@ -632,6 +632,7 @@ __metadata:
   dependencies:
     "@repo/eslint-config": "workspace:*"
     "@repo/prettier-config": "workspace:*"
+    "@total-typescript/ts-reset": "npm:^0.5.1"
     "@types/react": "npm:^18.2.66"
     "@types/react-dom": "npm:^18.2.22"
     "@vitejs/plugin-react": "npm:^4.2.1"
@@ -639,6 +640,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
+    tslib: "npm:^2.6.2"
     typescript: "npm:^5.2.2"
     vite: "npm:^5.2.0"
     vite-tsconfig-paths: "npm:^4.3.2"
@@ -797,6 +799,13 @@ __metadata:
   version: 1.10.2
   resolution: "@rushstack/eslint-patch@npm:1.10.2"
   checksum: 10c0/3712b8994bfed0968d4c4f21ff10bf5f2abb47f47d65d4e616de4311d2f372f2528b03b1d4e0dcaa7392f8626ccdf114e753db4f790e92436fc5a4e52195d181
+  languageName: node
+  linkType: hard
+
+"@total-typescript/ts-reset@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@total-typescript/ts-reset@npm:0.5.1"
+  checksum: 10c0/0339e975034ae648e83f08d0d408d9bda926fdb0cbaddf8efebd3105b378847be8bc9c2f1aa1435e2221f5958019bc2cb562211745a52fe076a109645c8a31f0
   languageName: node
   linkType: hard
 
@@ -4362,7 +4371,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.4.0":
+"tslib@npm:^2.4.0, tslib@npm:^2.6.2":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 10c0/e03a8a4271152c8b26604ed45535954c0a45296e32445b4b87f8a5abdb2421f40b59b4ca437c4346af0f28179780d604094eb64546bee2019d903d01c6c19bdb
