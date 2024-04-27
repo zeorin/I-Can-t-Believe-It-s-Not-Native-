@@ -13,7 +13,7 @@
     "storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006 --ci",
     "build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build",
     "e2e": "playwright test",
-    "test": "vitest"
+    "test": "vitest --passWithNoTests"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",

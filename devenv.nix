@@ -1,6 +1,8 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, config, lib, ... }:
 
 {
+  name = "I Can't Believe It's Not Native!";
+
   languages.javascript.enable = true;
   languages.javascript.corepack.enable = true;
   languages.typescript.enable = true;
@@ -47,13 +49,78 @@
 
   env.PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
 
+  packages = (config.pre-commit.enabledPackages or [ ]);
+
+  pre-commit.excludes = [ "\\.pnp\\.cjs" "\\.pnp\\.loader\\.mjs" "\\.yarn/.*" ];
+  pre-commit.hooks = {
+    check-added-large-files.enable = true;
+    check-case-conflicts.enable = true;
+    check-json.enable = true;
+    check-merge-conflicts.enable = true;
+    check-shebang-scripts-are-executable.enable = true;
+    check-symlinks.enable = true;
+    check-vcs-permalinks.enable = true;
+    check-yaml.enable = true;
+    commitizen.enable = true;
+    deadnix.enable = true;
+    html-tidy.enable = true;
+    prettier = {
+      enable = true;
+      entry = "yarn workspaces foreach --all run format";
+      pass_filenames = false;
+    };
+  } // (let
+    inSubfolder = subfolder:
+      { entry, files, excludes ? [ ], ... }@attrs:
+      attrs // {
+        entry = toString
+          (pkgs.writeShellScript "pre-commit-in-subfolder-entry-${subfolder}" ''
+            				set -euo pipefail
+            				cd "${subfolder}"
+                    ${entry} "''${@//${lib.escape [ "/" ] subfolder}\//}"
+          '');
+        files = "${subfolder}/${files}";
+        excludes = map (exclude: "${subfolder}/${exclude}") excludes;
+      };
+    mapToSubfolder = subfolder:
+      lib.attrsets.mapAttrs' (name: attrs: {
+        name = "${subfolder}-${name}";
+        value = inSubfolder subfolder attrs;
+      });
+  in mapToSubfolder "packages/demo-app" {
+    lint = {
+      enable = true;
+      entry =
+        "yarn run eslint --report-unused-disable-directives --max-warnings 0";
+      files = ".*\\.tsx?";
+      excludes = [ "\\.storybook/.*" ];
+    };
+    e2e = {
+      enable = true;
+      entry = "yarn e2e";
+      files = "e2e/.*\\.ts";
+      pass_filenames = false;
+    };
+    test = {
+      enable = true;
+      entry = "yarn test";
+      files = ".*\\.spec\\.ts";
+    };
+    check = {
+      enable = true;
+      entry = "yarn check";
+      files = ".*\\.tsx?";
+      pass_filenames = false;
+    };
+  });
+
   processes = {
     demo-dev = let log_location = "${config.env.DEVENV_STATE}/demo-dev.log";
     in {
       exec = ''
         set -euo pipefail
         truncate -s 0 "${log_location}"
-        yarn workspace demo dev
+        yarn workspace @repo/demo-app dev
       '';
       process-compose = {
         availability.restart = "on_failure";
@@ -80,7 +147,7 @@
         exec = ''
           set -euo pipefail
           truncate -s 0 "${log_location}"
-          yarn workspace demo storybook
+          yarn workspace @repo/demo-app storybook
         '';
         process-compose = {
           availability.restart = "on_failure";
