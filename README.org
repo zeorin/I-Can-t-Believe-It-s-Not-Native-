@@ -1,6 +1,7 @@
 #+title: I Can't Believe It's Not Native
 
 * Getting Started
+
 - Install [[https://nixos.org/][Nix]], the package manager (see [[https://zero-to-nix.com/start/install][Zero to Nix]]):
 
   #+begin_src sh
@@ -14,7 +15,9 @@
 
 This will install the correct versions of all the necessary dependencies for this project, independently of the rest of your system.
 
-Now you can run:
+* Development Environment
+
+Run:
 #+begin_src sh
 devenv shell
 #+end_src
@@ -23,3 +26,11 @@ to enter the development environment.
 Start your editor from this shell, or consider setting up [[https://direnv.net/][direnv]] for more advanced integrations.
 
 You may need to [[https://yarnpkg.com/getting-started/editor-sdks][set up your editor to work with Yarn PnP]].
+
+* Services
+
+Run:
+#+begin_src sh
+devenv processes up
+#+end_src
+to start the dev server.

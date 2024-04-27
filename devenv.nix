@@ -44,4 +44,33 @@
   in ''
     "${initYarnScript}"
   '';
+
+  processes = {
+    demo-dev = let log_location = "${config.env.DEVENV_STATE}/demo-dev.log";
+    in {
+      exec = ''
+        set -euo pipefail
+        truncate -s 0 "${log_location}"
+        yarn workspace demo dev
+      '';
+      process-compose = {
+        availability.restart = "on_failure";
+        inherit log_location;
+        log_configuration.flush_each_line = true;
+        readiness_probe = {
+          exec.command = toString
+            (pkgs.writeShellScript "vite-devserver-readiness-probe.sh" ''
+              set -euo pipefail
+              [ ! -f "${log_location}" ] && exit 1
+              grep -q "VITE.*ready" "${log_location}"
+            '');
+          initial_delay_seconds = 1;
+          period_seconds = 2;
+          timeout_seconds = 2;
+          success_threshold = 1;
+          failure_threshold = 100;
+        };
+      };
+    };
+  };
 }
