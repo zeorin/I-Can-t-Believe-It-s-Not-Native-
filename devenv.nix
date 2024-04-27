@@ -72,5 +72,32 @@
         };
       };
     };
+    demo-storybook =
+      let log_location = "${config.env.DEVENV_STATE}/demo-storybook.log";
+      in {
+        exec = ''
+          set -euo pipefail
+          truncate -s 0 "${log_location}"
+          yarn workspace demo storybook
+        '';
+        process-compose = {
+          availability.restart = "on_failure";
+          inherit log_location;
+          log_configuration.flush_each_line = true;
+          readiness_probe = {
+            exec.command = toString
+              (pkgs.writeShellScript "storybook-watch-readiness-probe.sh" ''
+                set -euo pipefail
+                [ ! -f "${log_location}" ] && exit 1
+                grep -q "Storybook.*started" "${log_location}"
+              '');
+            initial_delay_seconds = 1;
+            period_seconds = 2;
+            timeout_seconds = 2;
+            success_threshold = 1;
+            failure_threshold = 100;
+          };
+        };
+      };
   };
 }

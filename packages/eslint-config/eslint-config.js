@@ -14,6 +14,7 @@ module.exports = {
 		'plugin:react/jsx-runtime',
 		'plugin:jsx-a11y/recommended',
 		'plugin:eslint-comments/recommended',
+		'plugin:storybook/recommended',
 		'prettier',
 	],
 	ignorePatterns: ['dist', '.eslintrc.cjs'],

@@ -33,4 +33,4 @@ Run:
 #+begin_src sh
 devenv processes up
 #+end_src
-to start the dev server.
+to start the dev server and Storybook.
