@@ -1,0 +1,16 @@
+{
+  "name": "@repo/prettier-config",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "main": ".prettierrc.js",
+  "scripts": {
+    "format": "prettier --ignore-path ../../.gitignore --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  },
+  "peerDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
