@@ -3243,6 +3243,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@playwright/test", [\
+      ["npm:1.40.0", {\
+        "packageLocation": "./.yarn/cache/@playwright-test-npm-1.40.0-6f5e4c2358-f885646612.zip/node_modules/@playwright/test/",\
+        "packageDependencies": [\
+          ["@playwright/test", "npm:1.40.0"],\
+          ["playwright", "npm:1.40.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@radix-ui/react-compose-refs", [\
       ["npm:1.0.1", {\
         "packageLocation": "./.yarn/cache/@radix-ui-react-compose-refs-npm-1.0.1-02d1046f7d-be06f8dab3.zip/node_modules/@radix-ui/react-compose-refs/",\
@@ -3325,6 +3335,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@repo/demo-app", "workspace:packages/demo-app"],\
           ["@chromatic-com/storybook", "npm:1.3.3"],\
+          ["@playwright/test", "npm:1.40.0"],\
           ["@repo/eslint-config", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#workspace:packages/eslint-config"],\
           ["@repo/prettier-config", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#workspace:packages/prettier-config"],\
           ["@storybook/addon-essentials", "npm:8.0.9"],\
@@ -3336,6 +3347,7 @@ const RAW_RUNTIME_STATE =
           ["@storybook/react-vite", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:8.0.9"],\
           ["@storybook/test", "npm:8.0.9"],\
           ["@total-typescript/ts-reset", "npm:0.5.1"],\
+          ["@types/node", "npm:20.12.7"],\
           ["@types/react", "npm:18.3.1"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@vitejs/plugin-react", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:4.2.1"],\
@@ -9090,6 +9102,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["fsevents", [\
+      ["patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>::version=2.3.2&hash=df0bf1", {\
+        "packageLocation": "./.yarn/unplugged/fsevents-patch-19706e7e35/node_modules/fsevents/",\
+        "packageDependencies": [\
+          ["fsevents", "patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
+          ["node-gyp", "npm:10.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1", {\
         "packageLocation": "./.yarn/unplugged/fsevents-patch-6b67494872/node_modules/fsevents/",\
         "packageDependencies": [\
@@ -11682,6 +11702,26 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["playwright", [\
+      ["npm:1.40.0", {\
+        "packageLocation": "./.yarn/cache/playwright-npm-1.40.0-ca783bdc92-21bcf47395.zip/node_modules/playwright/",\
+        "packageDependencies": [\
+          ["playwright", "npm:1.40.0"],\
+          ["fsevents", "patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
+          ["playwright-core", "npm:1.40.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["playwright-core", [\
+      ["npm:1.40.0", {\
+        "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.40.0-ba68780406/node_modules/playwright-core/",\
+        "packageDependencies": [\
+          ["playwright-core", "npm:1.40.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["polished", [\
       ["npm:4.3.1", {\
         "packageLocation": "./.yarn/cache/polished-npm-4.3.1-96b1782f82-45480d4c72.zip/node_modules/polished/",\
@@ -13867,7 +13907,7 @@ const RAW_RUNTIME_STATE =
           ["vite", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:5.2.10"],\
           ["@types/less", null],\
           ["@types/lightningcss", null],\
-          ["@types/node", null],\
+          ["@types/node", "npm:20.12.7"],\
           ["@types/sass", null],\
           ["@types/stylus", null],\
           ["@types/sugarss", null],\

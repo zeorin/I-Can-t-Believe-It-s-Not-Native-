@@ -45,6 +45,8 @@
     "${initYarnScript}"
   '';
 
+  env.PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+
   processes = {
     demo-dev = let log_location = "${config.env.DEVENV_STATE}/demo-dev.log";
     in {
