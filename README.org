@@ -1,0 +1,25 @@
+#+title: I Can't Believe It's Not Native
+
+* Getting Started
+- Install [[https://nixos.org/][Nix]], the package manager (see [[https://zero-to-nix.com/start/install][Zero to Nix]]):
+
+  #+begin_src sh
+  curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+  #+end_src
+
+- Install [[https://devenv.sh/][devenv]], the development environment manager (see [[https://devenv.sh/getting-started/#2-install-devenv][devenv.sh]]):
+  #+begin_src sh
+  nix-env -iA devenv -f https://github.com/NixOS/nixpkgs/tarball/nixpkgs-unstable
+  #+end_src
+
+This will install the correct versions of all the necessary dependencies for this project, independently of the rest of your system.
+
+Now you can run:
+#+begin_src sh
+devenv shell
+#+end_src
+to enter the development environment.
+
+Start your editor from this shell, or consider setting up [[https://direnv.net/][direnv]] for more advanced integrations.
+
+You may need to [[https://yarnpkg.com/getting-started/editor-sdks][set up your editor to work with Yarn PnP]].
