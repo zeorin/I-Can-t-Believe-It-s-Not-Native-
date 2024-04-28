@@ -27,6 +27,8 @@ pnpm-debug.log*
 lerna-debug.log*
 *storybook.log
 
+.yarn/cache
+
 node_modules
 dist
 dist-ssr

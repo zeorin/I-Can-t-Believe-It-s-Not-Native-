@@ -93,7 +93,7 @@
       entry =
         "yarn run eslint --report-unused-disable-directives --max-warnings 0";
       files = ".*\\.tsx?";
-      excludes = [ "\\.storybook/.*" ];
+      excludes = [ "\\.storybook/.*" "src/routeTree\\.gen\\.ts" ];
     };
     e2e = {
       enable = true;
