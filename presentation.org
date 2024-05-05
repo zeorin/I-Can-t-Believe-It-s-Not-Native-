@@ -1,0 +1,107 @@
+#+Title: I Can't Believe It's Not Native
+#+Author: Xandor Schiefer
+#+Email: xandor@pixeltheory.dev
+
+#+EXPORT_FILE_NAME: index.html
+#+OPTIONS: toc:nil num:t
+#+REVEAL_HLEVEL: 2
+#+REVEAL_TITLE_SLIDE: <h1 class="title">%t</h1>
+#+REVEAL_TITLE_SLIDE: <h2 class="subtitle">DevConf 2024</h2>
+#+REVEAL_TITLE_SLIDE: <p class="author">%a</p>
+
+* Web as an applications platform
+** History
+- XMLHttpRequest (Gmail)
+- V8
+- HTML5
+* Platform capabilities
+* Types of cross-platform
+** Native
+** Compile-to-native
+** Hybrid-Native
+** Hybrid
+** "Web-Native"
+* Why do people choose native
+** https://results.stateofreactnative.com/platform-apis/
+* Performance
+** Performance Budget
+It's true that we have a smaller performance budget than truly native apps, for 2 reasons:
+- Our JS may not be as fast as native code (though we can get really close if we understand how the optimising JIT compilers work and memory management, e.g. monomorphic functions, object pools, garbage thrashing)
+- We have to work via the DOM, which is more than just a canvas (SKIA is still used to actually draw to the screen, I.e. drawing performance isn't really the issue, it's the overhead of the DOM model)
+** Animations/Transitions
+** Not Blocking the main thread
+- called the "UI Thread" on native platforms
+- Web workers
+- Houdini worklets
+- React concurrent mode / Activitiy
+** Caching/pre-fetching
+** Architecture
+* Examples of good apps
+* When not native
+* Notes about FEDSA video
+https://www.youtube.com/watch?v=_GfEot5UiA0
+** things to include
+*** Platform's HID guidelines
+*** Stack-based Navigation
+- https://github.com/WICG/navigation-api
+- https://reactnavigation.org/
+*** Android hardwark back button
+sometimes means to close modals, etc, rather than to navigate back in the history
+- https://github.com/WICG/close-watcher
+- https://ionicframework.com/docs/developing/hardware-back-button
+- Route masking:
+  - https://tanstack.com/router/latest/docs/framework/react/guide/route-masking
+  -
+*** explain more terms
+- don't assume everyone knows all the acronyms
+- e.g. DOM, V8, JavaScriptCore
+*** lightbulb moment
+- Turning the web into an application platform
+- Taken much longer than I'd thought
+*** Animations
+- animations aren't really what makes an app feel native
+- it's the responsiveness
+- physically based animations do make a difference in feel
+  - use a library
+  - consider gesture interaction, too
+- double-check the Instagram "many transitions don't have animations" claim
+- avoid jank (dom reflows/paints)
+  - find a good resource for this
+- GPU-enabled CSS transitions
+- native has "pits of success"
+*** performance
+- native has "pits of success"
+- reference native architecture patterns
+  - don't block the main thread
+  - "main thread" == "ui thread"
+- find the 80/20 ito what listeners can do to improve the performance
+*** perceived performance
+- RAIL model
+- Web Vitals
+- optimistic updates
+- local-first
+*** case studies / examples
+*** advantages of web vs native
+- Can be 4× the cost to build native apps
+- Previous tech run was special because
+  - free money (0% interest rate)
+  - cloud
+  - mobile being a new distribution method
+- Now
+  - expensive money
+  - focusing on value
+  - can PWA be a new distribution method?
+*** when not to use web / when to go native
+- you have massive scale
+  - rare things are common
+  - 10ms perf hit actually costs significant drop in users and revenue
+- genuinely performance sensitive
+  - being good at web/browser perf won't be good enough
+- you have existing native (or adjacent) skills
+*** deployment / distribution
+- bubblewrap
+- Trusted Web Activities
+- Capacitor / Cordova
+*** platform capabilities
+- Project FUGU
+- Compare to state of react native platform APIs

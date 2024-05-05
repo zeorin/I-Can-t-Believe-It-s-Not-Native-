@@ -31,6 +31,6 @@ You may need to [[https://yarnpkg.com/getting-started/editor-sdks][set up your e
 
 Run:
 #+begin_src sh
-devenv processes up
+dev
 #+end_src
-to start the dev server and Storybook.
+to start the demo app dev server, Storybook, and a Reveal.js instance.
