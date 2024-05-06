@@ -1,6 +1,7 @@
 ((nil . ((indent-tabs-mode . t)
          (tab-width . 2)))
  (nix-mode . ((indent-tabs-mode . nil)))
+ (yaml-mode . ((indent-tabs-mode . nil)))
  (rjsx-mode . ((lsp-eslint-node-path . ".yarn/sdks")
     (lsp-eslint-working-directories . [(pattern "packages/*")])
     (lsp-auto-fix-on-save . t)))

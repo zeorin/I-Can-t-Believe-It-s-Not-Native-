@@ -99,6 +99,13 @@ let
   '';
   emacs = ((pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages
     (epkgs: with epkgs; [ org-re-reveal ]));
+  build-presentation = pkgs.writeShellScript "build-presentation" ''
+    set -euo pipefail
+    cd "${distDir}/presentation"
+    cp    "${config.env.DEVENV_ROOT}/presentation.org" .
+    cp -R "${config.env.DEVENV_ROOT}/images" .
+    ${emacs}/bin/emacs --batch -l "${org-reveal-export}"
+  '';
 in {
   name = "I Can't Believe It's Not Native!";
 
@@ -225,12 +232,6 @@ in {
         mkdir -p "${distDir}/presentation/reveal.js"/{js,css}
         cp -Lr --no-preserve=all "${revealjs}/lib/node_modules/reveal.js" "${distDir}/presentation"
       '';
-      build-presentation = pkgs.writeShellScript "build-presentation" ''
-        set -euo pipefail
-        cd "${distDir}/presentation"
-        cp "${config.env.DEVENV_ROOT}/presentation.org" .
-        ${emacs}/bin/emacs --batch -l "${org-reveal-export}"
-      '';
     in ''
       set -euo pipefail
       ${clean}
@@ -238,11 +239,17 @@ in {
       ${build-presentation}
     '';
     "build:demo-app".exec = ''
-      yarn build
+      mkdir -p "${distDir}/demo"
+      yarn workspace @repo/demo-app build --outDir "${distDir}/demo" --emptyOutDir --base=/i-cant-believe-its-not-native/demo/
+    '';
+    "build:storybook".exec = ''
+      mkdir -p "${distDir}/storybook"
+      yarn workspace @repo/demo-app build-storybook --output-dir "${distDir}/storybook"
     '';
     build.exec = ''
       build:presentation &
       build:demo-app &
+      build:storybook &
       wait
     '';
     dev.exec = ''
@@ -295,7 +302,7 @@ in {
           export PATH="${lib.makeBinPath [ pkgs.inotify-tools ]}:$PATH"
           build:presentation
           while inotifywait -e close_write "${config.env.DEVENV_ROOT}/presentation.org"; do
-            ${org-reveal-export}
+            ${build-presentation}
           done
         '';
         process-compose = {
