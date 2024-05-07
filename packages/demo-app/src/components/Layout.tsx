@@ -10,10 +10,8 @@ export const Layout = ({ children }: { children: React.ReactNode }) => (
 		<Header />
 		<Box
 			component="main"
-			className="MainContent"
 			sx={{
-				pt: { xs: 'calc(12px + var(--Header-height))', md: 3 },
-				pb: { xs: 2, sm: 2, md: 3 },
+				p: 0,
 				flex: 1,
 				display: 'flex',
 				flexDirection: 'column',

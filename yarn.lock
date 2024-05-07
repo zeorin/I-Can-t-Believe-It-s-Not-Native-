@@ -2645,6 +2645,7 @@ __metadata:
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     react-use: "npm:^17.5.0"
+    react-use-gesture: "npm:^9.1.3"
     remeda: "npm:^1.61.0"
     storybook: "npm:^8.0.9"
     tslib: "npm:^2.6.2"
@@ -10101,6 +10102,15 @@ __metadata:
     react: "*"
     tslib: "*"
   checksum: 10c0/97c32ecb7a425c3bcaa92dcf84c46146b49610d928efde9e9ee5518c475a0db942f01634dd490e4f42fcd95cc2f49657c1b96dcef96423c06f077147fe1968ab
+  languageName: node
+  linkType: hard
+
+"react-use-gesture@npm:^9.1.3":
+  version: 9.1.3
+  resolution: "react-use-gesture@npm:9.1.3"
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: 10c0/36e8991811c9bf97018cda24b84d9010143fbb8c43eec1089580ef69450f4004a60969b662b489f5416a5c45c516a5d718f20ae46b3fbf0c49f7e34320021246
   languageName: node
   linkType: hard
 

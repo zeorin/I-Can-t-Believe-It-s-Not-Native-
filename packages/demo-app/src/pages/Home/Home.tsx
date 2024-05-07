@@ -1,5 +1,5 @@
 import { useLocalization } from '@fluent/react'
-import { Typography } from '@mui/joy'
+import { Typography, Sheet } from '@mui/joy'
 
 import { useLoader } from './loader'
 
@@ -7,5 +7,14 @@ import { useLoader } from './loader'
 export const Home = () => {
 	useLoader()
 	const { l10n } = useLocalization()
-	return <Typography level="h1">{l10n.getString('home-title')}</Typography>
+	return (
+		<Sheet
+			sx={{
+				p: 2,
+				flex: 1,
+			}}
+		>
+			<Typography level="h1">{l10n.getString('home-title')}</Typography>
+		</Sheet>
+	)
 }

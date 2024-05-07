@@ -4406,6 +4406,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:50806adc1a15ac3203587e8f275c2309094d4a8459c7bc11165b390f7b65859c9d86ca51d7d9dc33ba9cdd5f7e51bfc75078ff13f9aea9ccf0b5637764d70c45#npm:18.3.1"],\
           ["react-use", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:17.5.0"],\
+          ["react-use-gesture", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:9.1.3"],\
           ["remeda", "npm:1.61.0"],\
           ["storybook", "npm:8.0.9"],\
           ["tslib", "npm:2.6.2"],\
@@ -14326,6 +14327,28 @@ const RAW_RUNTIME_STATE =
           "@types/react-dom",\
           "@types/react",\
           "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-use-gesture", [\
+      ["npm:9.1.3", {\
+        "packageLocation": "./.yarn/cache/react-use-gesture-npm-9.1.3-5c2e76bd9b-36e8991811.zip/node_modules/react-use-gesture/",\
+        "packageDependencies": [\
+          ["react-use-gesture", "npm:9.1.3"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:9.1.3", {\
+        "packageLocation": "./.yarn/__virtual__/react-use-gesture-virtual-747c3c50de/0/cache/react-use-gesture-npm-9.1.3-5c2e76bd9b-36e8991811.zip/node_modules/react-use-gesture/",\
+        "packageDependencies": [\
+          ["react-use-gesture", "virtual:b356993a0ab99fc7fb7a14f8b2aca6c1acdf623aaf72b834d686d9ec854adff15b1312344432c00b5d55f4c7f707a8ba5a0b2fb32318075c207aae046010c743#npm:9.1.3"],\
+          ["@types/react", "npm:18.3.1"],\
+          ["react", "npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
           "react"\
         ],\
         "linkType": "HARD"\

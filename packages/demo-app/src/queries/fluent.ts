@@ -19,6 +19,7 @@ export const createFluentQueryKeys = <const PathKey extends string>(
 		fluentQueryRootKey,
 		R.fromEntries(
 			R.entries(modules)
+				.filter(([modulePath]) => Boolean(moduleLocale(modulePath)))
 				.map(
 					([modulePath, importFn]) =>
 						[
@@ -29,8 +30,7 @@ export const createFluentQueryKeys = <const PathKey extends string>(
 								queryFn: importFn,
 							}),
 						] as const,
-				)
-				.filter(([modulePath]) => Boolean(moduleLocale(modulePath))),
+				),
 		) as Record<
 			string,
 			() => { queryKey: [pathKey: PathKey]; queryFn: () => Promise<string> }

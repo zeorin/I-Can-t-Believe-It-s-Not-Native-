@@ -16,6 +16,11 @@
 ** Hybrid
 ** PWA / "Web-Native"
 It's just a web app
+* What is it about "Native"?
+** Platform capabilities
+** Performance
+** Design
+** Interaction Animation
 * Web as an applications platform
 ** History
 *** Scientific Information Sharing
@@ -84,7 +89,10 @@ The gap is very small
 
 [[https://github.com/aholachek/mobile-first-animation][Mobile First Animation in React]]
 *** ~use-gesture~ & ~react-spring~
-** Design
+#+ATTR_HTML: :width 480px
+[[./images/demo.png]]
+https://zeorin.github.io/i-cant-believe-its-not-native/demo
+** DESIGN
 *** System Fonts
 *** Accent Colours
 *** System Colours
@@ -92,21 +100,21 @@ The gap is very small
 *** Text Selection
 * Some examples
 ** Vial
-#+ATTR_HTML: width: 640px
+#+ATTR_HTML: :width 640px
 [[./images/2024-05-06_11-20.png]]
 
 [[https://vial.rocks/][vial.rocks]]
 ** Bruno Simon
-   #+REVEAL_HTML: <video controls width="720" data-src="images/bruno-simon.mp4"></video>
+#+REVEAL_HTML: <video controls width="720" data-src="images/bruno-simon.mp4"></video>
 
 [[https://bruno-simon.com][bruno-simon.com]]
 ** Fortnite
-#+ATTR_HTML: width: 640px
+#+ATTR_HTML: :width 640px
 [[./images/2024-05-06_11-29.png]]
 
 [[https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2][xbox.com/en-US/play/games/fortnite/BT5P2X999VH2]]
 ** GrapheneOS
-#+ATTR_HTML: width: 640px
+#+ATTR_HTML: :width 640px
 [[./images/2024-05-06_11-38.png]]
 
 [[https://grapheneos.org/install/web#flashing-factory-images][grapheneos.org/install/web#flashing-factory-images]]
@@ -117,4 +125,10 @@ The gap is very small
 *** If devs don't know Web
 *** If devs don't know Web /well enough/
 * Questions
+Please rate my talk
+#+ATTR_HTML: :width 480px
+[[./images/RateJoburg.png]]
 * Thank you
+Please rate my talk
+#+ATTR_HTML: :width 480px
+[[./images/RateJoburg.png]]
