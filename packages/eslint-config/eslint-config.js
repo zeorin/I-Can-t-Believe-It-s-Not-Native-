@@ -98,6 +98,7 @@ module.exports = {
 				ignoreProps: true,
 			},
 		],
+		'react/prop-types': 'off',
 		'jsdoc/require-jsdoc': [
 			'warn',
 			{
@@ -116,6 +117,12 @@ module.exports = {
 			{
 				varsIgnorePattern: '^_+$',
 				argsIgnorePattern: '^_+$',
+			},
+		],
+		'@typescript-eslint/restrict-template-expressions': [
+			'warn',
+			{
+				allowNumber: true,
 			},
 		],
 	},

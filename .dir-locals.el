@@ -3,12 +3,20 @@
  (nix-mode . ((indent-tabs-mode . nil)))
  (yaml-mode . ((indent-tabs-mode . nil)))
  (rjsx-mode . ((lsp-eslint-node-path . ".yarn/sdks")
-    (lsp-eslint-working-directories . [(pattern "packages/*")])
-    (lsp-auto-fix-on-save . t)))
+				   (lsp-eslint-working-directories . [(pattern "packages/*")])
+				   (lsp-eslint-package-manager . "yarn")
+ 				   (eval . (let ((project-directory (car (dir-locals-find-file default-directory))))
+								 (setq lsp-clients-typescript-prefer-use-project-ts-server t
+										   lsp-clients-typescript-project-ts-server-path (concat project-directory ".yarn/sdks/typescript/bin/tsserver"))))))
  (typescript-mode . ((lsp-eslint-node-path . ".yarn/sdks")
-    (lsp-eslint-working-directories . [(pattern "packages/*")])
-    (lsp-auto-fix-on-save . t)))
- (typescript-mode
-  . ((eval . (let ((project-directory (car (dir-locals-find-file default-directory))))
-               (setq lsp-clients-typescript-prefer-use-project-ts-server t
-                     lsp-clients-typescript-project-ts-server-path (concat project-directory ".yarn/sdks/typescript/bin/tsserver")))))))
+						 (lsp-eslint-working-directories . [(pattern "packages/*")])
+						 (lsp-eslint-package-manager . "yarn")
+ 						 (eval . (let ((project-directory (car (dir-locals-find-file default-directory))))
+									   (setq lsp-clients-typescript-prefer-use-project-ts-server t
+												 lsp-clients-typescript-project-ts-server-path (concat project-directory ".yarn/sdks/typescript/bin/tsserver"))))))
+ (typescript-tsx-mode . ((lsp-eslint-node-path . ".yarn/sdks")
+							 (lsp-eslint-working-directories . [(pattern "packages/*")])
+							 (lsp-eslint-package-manager . "yarn")
+ 							 (eval . (let ((project-directory (car (dir-locals-find-file default-directory))))
+										   (setq lsp-clients-typescript-prefer-use-project-ts-server t
+													 lsp-clients-typescript-project-ts-server-path (concat project-directory ".yarn/sdks/typescript/bin/tsserver")))))))

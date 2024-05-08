@@ -1,8 +1,7 @@
-/* eslint-disable */
-import React, { useState } from 'react'
-import { useSprings, animated, to as interpolate } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
 import { Sheet, styled } from '@mui/joy'
+import { useSprings, animated, to as interpolate } from '@react-spring/web'
+import { useState } from 'react'
+import { useDrag } from 'react-use-gesture'
 
 const Wrapper = styled(Sheet)(`
 	display: flex;
@@ -30,14 +29,15 @@ const Deck = styled(animated.div)(`
 	}
 
   & > div {
+		touch-action: none;
 		background-color: white;
 		background-size: auto 85%;
 		background-repeat: no-repeat;
 		background-position: center center;
 		width: 45vh;
-		max-width: 150px;
+		max-width: 300px;
 		height: 85vh;
-		max-height: 285px;
+		max-height: 570px;
 		will-change: transform;
 		border-radius: 10px;
 		box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
@@ -61,7 +61,7 @@ const to = (i: number) => ({
 	rot: -10 + Math.random() * 20,
 	delay: i * 100,
 })
-const from = (_i: number) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 })
+const from = (_: number) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 })
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 const trans = (r: number, s: number) =>
 	`perspective(1500px) rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
@@ -78,7 +78,7 @@ export const SwipableCards = () => {
 			const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out
 			const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
 			if (!down && trigger) gone.add(index) // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
-			api.start((i) => {
+			void api.start((i) => {
 				if (index !== i) return // We're only interested in changing spring-data for the current spring
 				const isGone = gone.has(index)
 				const x =
@@ -104,7 +104,7 @@ export const SwipableCards = () => {
 			if (!down && gone.size === cards.length)
 				setTimeout(() => {
 					gone.clear()
-					api.start((i) => to(i))
+					void api.start((i) => to(i))
 				}, 600)
 		},
 	)

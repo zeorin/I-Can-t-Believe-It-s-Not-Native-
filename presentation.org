@@ -91,6 +91,7 @@ The gap is very small
 *** ~use-gesture~ & ~react-spring~
 #+ATTR_HTML: :width 480px
 [[./images/demo.png]]
+
 https://zeorin.github.io/i-cant-believe-its-not-native/demo
 ** DESIGN
 *** System Fonts
@@ -127,8 +128,8 @@ https://zeorin.github.io/i-cant-believe-its-not-native/demo
 * Questions
 Please rate my talk
 #+ATTR_HTML: :width 480px
-[[./images/RateJoburg.png]]
+[[./images/RateCapeTown.png]]
 * Thank you
 Please rate my talk
 #+ATTR_HTML: :width 480px
-[[./images/RateJoburg.png]]
+[[./images/RateCapeTown.png]]

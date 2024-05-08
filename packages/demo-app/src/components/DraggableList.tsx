@@ -1,9 +1,8 @@
-/* eslint-disable */
-import { useRef } from 'react'
-import { useSprings, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
-import { swapIndices, clamp } from 'remeda'
 import { Sheet, styled } from '@mui/joy'
+import { useSprings, animated } from '@react-spring/web'
+import { useDrag } from '@use-gesture/react'
+import { useRef } from 'react'
+import { swapIndices, clamp } from 'remeda'
 
 const Wrapper = styled(Sheet)(`
 	flex: 1;
@@ -79,14 +78,16 @@ export const DraggableList = () => {
 	const order = useRef(items.map((_, index) => index)) // Store indicies as a local ref, this represents the item order
 	const [springs, api] = useSprings(items.length, fn(order.current)) // Create springs, each corresponds to an item, controlling its transform, scale, etc.
 	const bind = useDrag(({ args: [originalIndex], active, movement: [, y] }) => {
-		const curIndex = order.current.indexOf(originalIndex)
+		const curIndex = order.current.indexOf(originalIndex as number)
 		const curRow = clamp(Math.round((curIndex * 100 + y) / 100), {
 			min: 0,
 			max: items.length - 1,
 		})
 		const newOrder = swapIndices(order.current, curIndex, curRow)
-		api.start(fn(newOrder, active, originalIndex, curIndex, y)) // Feed springs new style data, they'll animate the view without causing a single render
-		if (!active) order.current = newOrder
+		void api.start(fn(newOrder, active, originalIndex as number, curIndex, y)) // Feed springs new style data, they'll animate the view without causing a single render
+		if (!active) {
+			order.current = newOrder
+		}
 	})
 	return (
 		<Wrapper>
@@ -107,8 +108,9 @@ export const DraggableList = () => {
 							y,
 							scale,
 						}}
-						children={items[i]}
-					/>
+					>
+						{items[i]}
+					</animated.div>
 				))}
 			</Container>
 		</Wrapper>

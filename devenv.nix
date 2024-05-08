@@ -240,7 +240,7 @@ in {
     '';
     "build:demo-app".exec = ''
       mkdir -p "${distDir}/demo"
-      yarn workspace @repo/demo-app build --outDir "${distDir}/demo" --emptyOutDir --base=/i-cant-believe-its-not-native/demo/
+      yarn workspace @repo/demo-app build --base=/i-cant-believe-its-not-native/demo/ --outDir "${distDir}/demo" --emptyOutDir
     '';
     "build:storybook".exec = ''
       mkdir -p "${distDir}/storybook"

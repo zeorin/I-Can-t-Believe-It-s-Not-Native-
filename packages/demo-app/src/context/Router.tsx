@@ -3,6 +3,7 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from '#/routeTree.gen'
 
 const router = createRouter({
+	basepath: import.meta.env.BASE_URL,
 	routeTree,
 	defaultPreload: 'intent',
 	defaultPreloadStaleTime: 0,
